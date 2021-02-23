@@ -16,16 +16,16 @@ export const fetchRandoms = () => {
   };
 };
 
-// export const fetchProducts = () => {
-//     return async (dispatch) => {
-//       try {
-//         const response = await instance.get("/products");
-//         dispatch({
-//           type: types.FETCH_PRODUCT,
-//           payload: { product: response.data },
-//         });
-//       } catch (error) {
-//         console.log(error);
-//       }
-//     };
-//   };
+export const fetchTreasures = () => {
+  return async (dispatch) => {
+    try {
+      const response = await instance.get("/things/treasurelist");
+      dispatch({
+        type: types.FETCH_TREASURE,
+        payload: { treasures: response.data },
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};

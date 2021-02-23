@@ -5,25 +5,28 @@ import { Link } from "react-router-dom";
 const Home = () => {
   const user = useSelector((state) => state.authReducer.user);
   return (
-    <div className="container  mt-5">
-      <div className="row">
-        <div className="col-3"></div>
-        <div className="col-6">
-          <Link to="/random">
-            <button type="button" className="btn btn-outline-dark me-3">
-              Explore Random Items
-            </button>
-          </Link>
-          {user ? (
-            <button type="button" className="btn btn-outline-dark me-3">
-              Explore Treasurs
-            </button>
-          ) : (
-            true
-          )}
-        </div>
-        <div className="col-3"></div>
-      </div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        margin: "65px 0 25px 0",
+      }}
+    >
+      <Link exact to="/random">
+        <button type="button" className="btn btn-outline-dark mt-3">
+          Explore Random Items
+        </button>
+      </Link>
+      {user ? (
+        <Link exact to="/treasures">
+          <button type="button" className="btn btn-outline-dark mt-3">
+            Explore Treasures
+          </button>
+        </Link>
+      ) : (
+        true
+      )}
     </div>
   );
 };

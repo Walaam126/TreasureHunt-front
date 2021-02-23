@@ -25,7 +25,7 @@ export const signup = (newUser, history) => {
   };
 };
 
-export const sigin = (user, history) => {
+export const signin = (user, history) => {
   return async (dispatch) => {
     try {
       const response = await instance.post("/signin", user);

@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 
 export const UserForm = styled.form`
   //   width: 500px;
-  padding: 60px;
+  padding: 56px;
   padding-top: 50px;
   padding-bottom: 80px;
   //   position: absolute;
@@ -13,6 +13,17 @@ export const UserForm = styled.form`
   text-align: center;
   //   transition: 0.25s;
   //   margin-top: 100px;
+`;
+
+export const NavList = styled(NavLink)`
+  font-size: 25px;
+  margin-top: 15px;
+  padding-right: 25px;
+  color: orange;
+  &.active {
+    color: Red;
+    font-weight: bold;
+  }
 `;
 
 export const List = styled.div`

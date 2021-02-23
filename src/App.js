@@ -5,22 +5,29 @@ import Home from "./components/Home";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import RandomList from "./components/RandomList";
+import TreasureList from "./components/TreasureList";
 
 function App() {
   return (
-    <div className="App">
+    <div
+    // className="App"
+    >
       <Navbar />
       <Switch>
-        <Route path="/random">
+        <Route exact path="/random">
           <RandomList />
         </Route>
-        <Route path="/signin">
+
+        <Route exact path="/treasures">
+          <TreasureList />
+        </Route>
+        <Route exact path="/signin">
           <SignIn />
         </Route>
-        <Route path="/signup">
+        <Route exact path="/signup">
           <SignUp />
         </Route>
-        <Route path="/">
+        <Route exact path="/">
           <Home />
         </Route>
       </Switch>

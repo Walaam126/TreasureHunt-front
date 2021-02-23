@@ -11,7 +11,12 @@ const RandomList = () => {
   );
   return (
     <div>
-      <h1 className="mb-5 mt-5">Random List</h1>
+      <h1
+        className="mb-5 mt-5"
+        style={{ display: "flex", justifyContent: "center" }}
+      >
+        Random List
+      </h1>
       <List>{randomList}</List>
     </div>
   );
