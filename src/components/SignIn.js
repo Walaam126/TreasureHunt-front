@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { signin } from "../store/actions/authAction";
 import { useForm } from "react-hook-form";
+import { fetchTreasures } from "../store/actions/thingsActions";
 
 const SignIn = () => {
   const history = useHistory();
@@ -29,6 +30,7 @@ const SignIn = () => {
   const Submit = (event) => {
     // event.preventDefault();
     dispatch(signin(user, history));
+    dispatch(fetchTreasures);
     return false;
   };
   return (

@@ -2,15 +2,16 @@ import React from "react";
 import { List } from "../styles";
 import { useSelector } from "react-redux";
 import TreasureItem from "./TreasureItem";
+import { Redirect } from "react-router-dom";
 const TreasureList = () => {
   const treasures = useSelector((state) => state.ThingsReducer.treasures);
+  const user = useSelector((state) => state.authReducer.user);
+  if (!user) {
+    return <Redirect to="/" />;
+  }
   const treasureList = treasures.map((treasure) => (
     <TreasureItem treasure={treasure} />
   ));
-  console.log(
-    "🚀 ~ file: TreasureList.js ~ line 19 ~ TreasureList ~ treasureList",
-    treasureList
-  );
   return (
     <div>
       <h1

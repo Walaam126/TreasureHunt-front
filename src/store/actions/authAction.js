@@ -3,6 +3,7 @@ import decode from "jwt-decode";
 import * as types from "./types";
 import Cookies from "js-cookie";
 import { toast } from "react-toastify";
+
 const setUser = (token) => {
   Cookies.set("mytoken", token);
   instance.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -17,6 +18,11 @@ export const signup = (newUser, history) => {
     try {
       const response = await instance.post("/signup", newUser);
       dispatch(setUser(response.data.token));
+      const response2 = await instance.get("/things/treasurelist");
+      dispatch({
+        type: types.FETCH_TREASURE,
+        payload: { treasures: response2.data },
+      });
       toast.info("Amazing, your account has been successfully created !!", {
         position: "bottom-right",
         autoClose: 5000,
@@ -37,8 +43,12 @@ export const signin = (user, history) => {
   return async (dispatch) => {
     try {
       const response = await instance.post("/signin", user);
-
       dispatch(setUser(response.data.token));
+      const response2 = await instance.get("/things/treasurelist");
+      dispatch({
+        type: types.FETCH_TREASURE,
+        payload: { treasures: response2.data },
+      });
       toast.success("Welcome again !! you have successfully signed in", {
         position: "bottom-right",
         autoClose: 5000,

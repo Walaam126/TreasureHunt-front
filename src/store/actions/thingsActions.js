@@ -20,6 +20,7 @@ export const fetchTreasures = () => {
   return async (dispatch) => {
     try {
       const response = await instance.get("/things/treasurelist");
+      console.log("my", response.data);
       dispatch({
         type: types.FETCH_TREASURE,
         payload: { treasures: response.data },
