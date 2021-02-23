@@ -1,6 +1,7 @@
 import React from "react";
 import { GiSkeletonKey } from "react-icons/gi";
 import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { signout } from "../store/actions/authAction";
 import { useDispatch } from "react-redux";
@@ -22,11 +23,11 @@ const Navbar = () => {
             Treasure Hunt
           </a>
           <form className="d-flex">
-            <Link to="/">
+            <NavLink to="/">
               <button type="button" className="btn btn-outline-primary me-3">
                 Home
               </button>
-            </Link>
+            </NavLink>
 
             {user ? (
               <>
@@ -37,19 +38,19 @@ const Navbar = () => {
               </>
             ) : (
               <>
-                <Link to="/signin">
+                <NavLink to="/signin">
                   <button
                     type="button"
                     className="btn btn-outline-primary me-3"
                   >
                     Sign in
                   </button>
-                </Link>
-                <Link to="/signup">
+                </NavLink>
+                <NavLink to="/signup">
                   <button type="button" className="btn btn-outline-secondary">
                     Sign up
                   </button>
-                </Link>
+                </NavLink>
               </>
             )}
           </form>

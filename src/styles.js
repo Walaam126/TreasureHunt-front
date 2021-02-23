@@ -14,3 +14,18 @@ export const UserForm = styled.form`
   //   transition: 0.25s;
   //   margin-top: 100px;
 `;
+
+export const List = styled.div`
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+export const Navitem = styled(NavLink)`
+  // color: white;
+  padding: 0.2em 1em;
+  // font-size: 18px;
+
+  text-decoration: none !important;
+`;
