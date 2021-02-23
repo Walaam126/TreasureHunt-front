@@ -1,5 +1,5 @@
-import styled, { createGlobalStyle } from "styled-components";
-import { Link, NavLink } from "react-router-dom";
+import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 export const UserForm = styled.form`
   //   width: 500px;

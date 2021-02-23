@@ -1,6 +1,7 @@
 const initialState = {
   randoms: [],
   treasures: [],
+  fetch: true,
 };
 export const ThingsReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -13,6 +14,7 @@ export const ThingsReducer = (state = initialState, action) => {
       return {
         ...state,
         treasures: action.payload.treasures,
+        fetch: false,
       };
 
     default:

@@ -1,11 +1,19 @@
 import React from "react";
 import { List } from "../styles";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import TreasureItem from "./TreasureItem";
 import { Redirect } from "react-router-dom";
+import { fetchTreasures } from "../store/actions/thingsActions";
+
 const TreasureList = () => {
   const treasures = useSelector((state) => state.ThingsReducer.treasures);
+  const fetch = useSelector((state) => state.ThingsReducer.fetch);
   const user = useSelector((state) => state.authReducer.user);
+
+  const dispatch = useDispatch();
+
+  if (fetch && user) dispatch(fetchTreasures());
+
   if (!user) {
     return <Redirect to="/" />;
   }
